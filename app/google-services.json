@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "520206512719",
+    "firebase_url": "https://snacktime-cc3b8.firebaseio.com",
+    "project_id": "snacktime-cc3b8",
+    "storage_bucket": "snacktime-cc3b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520206512719:android:028d39b6472ccbe4",
+        "android_client_info": {
+          "package_name": "com.example.snacktime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520206512719-8b5ujttsj6k2rld1f9umnmqnihj2h8q4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.snacktime",
+            "certificate_hash": "8cde5f5b4eb2d9cebeab61b2ab4eb61519512492"
+          }
+        },
+        {
+          "client_id": "520206512719-qi1lttc21i05idgcm6tu7v21gmv0p2tq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIpYaltycnKE2pV1Bf4VhagLSLqRDAAnQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520206512719-qi1lttc21i05idgcm6tu7v21gmv0p2tq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
