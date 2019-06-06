@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".LoginActivity"
-    android:background="@drawable/login_background"
-    android:backgroundTint="@color/colorPrimary"
+    android:background="@drawable/gradient"
+
     >
 
     <ImageView
@@ -16,11 +16,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:src="@drawable/snack_time"/>
-    
+
     <EditText
         android:id="@+id/login_phone_num_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_below="@+id/app_logo" />
 
 </RelativeLayout>

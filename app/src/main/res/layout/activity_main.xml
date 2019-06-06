@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient"
+    >
 
     <ImageView
         android:id="@+id/app_logo"
@@ -25,7 +27,7 @@
         android:layout_marginTop="215dp"
         android:text="Snack happily ever after"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold|italic"
         />
