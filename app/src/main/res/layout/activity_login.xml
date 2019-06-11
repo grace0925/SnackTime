@@ -67,4 +67,21 @@
         android:background="@color/colorPrimary"
         android:id="@+id/bar_password" />
 
+    <Button
+        android:id="@+id/login"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bar_password"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttons"
+        android:text="LOGIN"
+        android:textSize="18sp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        />
+    
+
+
 </RelativeLayout>
