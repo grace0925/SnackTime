@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".LoginActivity"
-    android:background="@drawable/login_background"
-
+    android:background="@color/colorPrimaryDark"
     >
 
     <ImageView
@@ -17,12 +16,55 @@
         android:layout_marginTop="20dp"
         android:src="@drawable/snack_time"/>
 
+    <!--login input -->
     <EditText
-        android:id="@+id/login_phone_num_input"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/username_edit"
+        android:drawableLeft="@drawable/avatar_icon"
+        android:inputType="textEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="75dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
-        android:background="@android:color/white"/>
+        android:ems="12"
+        android:textSize="25dp"
+        android:background="#8000000"
+        android:layout_below="@+id/app_logo"
+        android:hint="Username/ Email"
+        android:textColorHint="@color/colorPrimary"
+        />
+
+    <View
+        android:id="@+id/bar_login"
+        android:layout_width="370dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/username_edit"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"/>
+
+    <!--password input -->
+    <EditText
+        android:id="@+id/password_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:inputType="numberPassword"
+        android:layout_below="@+id/bar_login"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:ems="12"
+        android:textSize="25dp"
+        android:height="50dp"
+        android:background="#8000000"
+        android:hint="Password"
+        android:textColorHint="@color/colorPrimary"
+        android:drawableLeft="@drawable/lock_icon"
+        />
+
+    <View
+        android:layout_height="1dp"
+        android:layout_width="370dp"
+        android:layout_below="@+id/password_edit"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:id="@+id/bar_password" />
 
 </RelativeLayout>
