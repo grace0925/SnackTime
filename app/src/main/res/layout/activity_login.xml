@@ -8,8 +8,7 @@
     android:background="@color/colorPrimaryDark"
     >
 
-    <ImageView
-        android:id="@+id/app_logo"
+    <ImageView android:id="@+id/app_logo"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
@@ -17,8 +16,7 @@
         android:src="@drawable/snack_time"/>
 
     <!--login input -->
-    <EditText
-        android:id="@+id/username_edit"
+    <EditText android:id="@+id/username_edit"
         android:drawableLeft="@drawable/avatar_icon"
         android:inputType="textEmailAddress"
         android:layout_width="wrap_content"
@@ -33,8 +31,7 @@
         android:textColorHint="@color/colorPrimary"
         />
 
-    <View
-        android:id="@+id/bar_login"
+    <View android:id="@+id/bar_login"
         android:layout_width="370dp"
         android:layout_height="1dp"
         android:layout_below="@+id/username_edit"
@@ -42,8 +39,7 @@
         android:background="@color/colorPrimary"/>
 
     <!--password input -->
-    <EditText
-        android:id="@+id/password_edit"
+    <EditText android:id="@+id/password_edit"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:inputType="numberPassword"
@@ -59,41 +55,35 @@
         android:drawableLeft="@drawable/lock_icon"
         />
 
-    <View
+    <View android:id="@+id/bar_password"
         android:layout_height="1dp"
         android:layout_width="370dp"
         android:layout_below="@+id/password_edit"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorPrimary"
-        android:id="@+id/bar_password" />
+        android:background="@color/colorPrimary" />
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/remember_me_checkbox"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/buttons"
-        android:text="LOGIN"
-        android:textSize="18sp"
-        android:padding="15dp"
-        android:textColor="@color/colorAccent"
-        android:textStyle="bold"
-        />
-
-    <CheckBox
-        android:id="@+id/remember_me_checkbox"
+    <LinearLayout android:id="@+id/username_password_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bar_password"
-        android:layout_marginTop="10dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/bar_password"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="20dp"
-        android:textSize="18sp"
-        android:textColor="@color/colorPrimary"
-        android:text="Remember Me"
-        android:padding="8dp"
-        />
+        android:orientation="horizontal">
 
+        <CheckBox android:id="@+id/remember_me_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember Me"/>
+        
+        <Button android:id="@+id/login"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttons"
+            android:text="LOGIN"
+            android:padding="15dp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold">
 
+        </Button>
+    </LinearLayout>
 </RelativeLayout>
