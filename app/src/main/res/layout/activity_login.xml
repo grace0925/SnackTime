@@ -73,7 +73,9 @@
         <CheckBox android:id="@+id/remember_me_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Remember Me"/>
+            android:text="Remember Me"
+            android:textSize="15sp"
+            android:padding="8dp"/>
         
         <Button android:id="@+id/login"
             android:layout_width="200dp"
@@ -81,6 +83,7 @@
             android:background="@drawable/buttons"
             android:text="LOGIN"
             android:padding="15dp"
+            android:layout_marginLeft="35dp"
             android:textColor="@color/colorAccent"
             android:textStyle="bold">
 
