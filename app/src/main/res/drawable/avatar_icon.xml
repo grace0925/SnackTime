@@ -4,6 +4,6 @@
         android:width="33dp"
         android:height="30dp"
         android:right="23dp"
-        android:top="5dp"
+        android:bottom="5dp"
         />
 </layer-list>
