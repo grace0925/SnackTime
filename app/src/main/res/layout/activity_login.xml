@@ -26,6 +26,7 @@
         android:ems="12"
         android:textSize="25dp"
         android:layout_below="@+id/app_logo_login"
+        android:textColor="@color/colorPrimary"
         android:hint="Username/ Email"
         android:textColorHint="@color/colorPrimary"
         />
@@ -42,6 +43,7 @@
         android:textSize="25dp"
         android:height="50dp"
         android:hint="Password"
+        android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
         android:drawableLeft="@drawable/lock_icon"
         />
