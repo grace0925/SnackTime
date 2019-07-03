@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity"
+    android:background="@android:color/white">
+
+    <View android:id="@+id/dark_rect_signup"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <ImageView android:id="@+id/app_logo_signup"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/snack_time"/>
+
+    <EditText android:id="@+id/username_signup"
+
+        android:inputType="textEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="75dp"
+        android:layout_centerHorizontal="true"
+        android:ems="12"
+        android:textSize="25dp"
+        android:layout_below="@+id/app_logo_signup"
+        android:hint="Username"
+        android:textColorHint="@color/colorPrimaryDark"
+        />
+
+</RelativeLayout>
