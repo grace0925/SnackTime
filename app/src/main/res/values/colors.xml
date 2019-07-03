@@ -5,4 +5,5 @@
     <color name="colorAccent">#e37d00</color>
     <color name="colorHover">#ecbb74</color>
     <color name="darkGrey">#3a3a3b</color>
+    <color name="lightGrey">#D3D3D3</color>
 </resources>
