@@ -125,7 +125,7 @@ public class SignupActivity extends AppCompatActivity {
                         }
                     });
                 } else {
-                    Toast.makeText(SignupActivity.this, "Email address " + email + " already exists", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this, "username" + username + " already exists", Toast.LENGTH_SHORT).show();
                     loading.dismiss();
                 }
             }
