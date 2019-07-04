@@ -1,7 +1,7 @@
 package com.example.snacktime;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.ProgressDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,6 +13,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private Button SignupButton;
     private EditText InputUsername, InputFirstname, InputLastname, Inputemail, Inputpw, InputConfirmPw;
+    private ProgressDialog loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +27,18 @@ public class SignupActivity extends AppCompatActivity {
         Inputemail = (EditText) findViewById(R.id.email_signup);
         Inputpw = (EditText) findViewById(R.id.password_signup);
         InputConfirmPw = (EditText) findViewById(R.id.confirm_password_signup);
+        loading = new ProgressDialog(this);
 
         SignupButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                CreateAccount();
+                createAccount();
             }
         });
     }
 
-    public void CreateAccount() {
+    public void createAccount() {
+
         String username = InputUsername.getText().toString();
         String firstname = InputFirstname.getText().toString();
         String lastname = InputLastname.getText().toString();
@@ -43,12 +46,29 @@ public class SignupActivity extends AppCompatActivity {
         String password = Inputpw.getText().toString();
         String confirmPw = InputConfirmPw.getText().toString();
 
+        //checking for empty edit texts
         checkEmptyEditText(username);
+        checkEmptyEditText(firstname);
+        checkEmptyEditText(lastname);
+        checkEmptyEditText(email);
+        checkEmptyEditText(password);
+        checkEmptyEditText(confirmPw);
+
+        loading.setTitle("Create Account");
+        loading.setMessage("Creating your SnackTime account...");
+        loading.setCanceledOnTouchOutside(false);
+        loading.show();
+
+
     }
 
-    public void checkEmptyEditText(String str) {
+    private void checkEmptyEditText(String str) {
         if(TextUtils.isEmpty(str)) {
             Toast.makeText(this, str.substring(0, 1).toUpperCase() + str.substring(1) + " can't be empty", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void validateUsernameEmail () {
+
     }
 }
