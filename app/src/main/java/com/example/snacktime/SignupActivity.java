@@ -27,6 +27,7 @@ import java.util.HashMap;
 
 public class SignupActivity extends AppCompatActivity {
 
+    //todo: email/phone verification
     private Button SignupButton;
     private EditText InputUsername, InputFirstname, InputLastname, Inputemail, Inputpw, InputConfirmPw;
     private ProgressDialog loading;
@@ -79,9 +80,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void checkEmptyEditText(String str) {
-        Log.d("checkEmptyEditText", "enter function");
         if(TextUtils.isEmpty(str)) {
-            Log.d("checkEmptyEditText", "got empty edit text");
             Toast.makeText(this, "Field can't be empty", Toast.LENGTH_SHORT).show();
         }
     }
