@@ -28,6 +28,7 @@ import java.util.HashMap;
 public class SignupActivity extends AppCompatActivity {
 
     //todo: email/phone verification
+    //todo:
     private Button SignupButton;
     private EditText InputUsername, InputFirstname, InputLastname, Inputemail, Inputpw, InputConfirmPw;
     private ProgressDialog loading;
