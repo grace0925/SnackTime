@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Logger;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
@@ -77,8 +79,10 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void checkEmptyEditText(String str) {
+        Log.d("checkEmptyEditText", "enter function");
         if(TextUtils.isEmpty(str)) {
-            Toast.makeText(this, str.substring(0, 1).toUpperCase() + str.substring(1) + " can't be empty", Toast.LENGTH_SHORT).show();
+            Log.d("checkEmptyEditText", "got empty edit text");
+            Toast.makeText(this, "Field can't be empty", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -86,11 +90,13 @@ public class SignupActivity extends AppCompatActivity {
         final DatabaseReference dbRef;
         //get reference to the firebase db instance
         dbRef = FirebaseDatabase.getInstance().getReference();
+        Log.d("DEBUG","Entering validateEmail");
 
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(!(dataSnapshot.child("Users").child(email).exists())) {
+                Log.d("DEBUG",  "data change");
+                if(!(dataSnapshot.child("Users").child(username).exists())) {
                     //new HashMap to store user update
                     HashMap<String, Object> userDataMap = new HashMap<>();
                     userDataMap.put("Username", username);
@@ -101,10 +107,11 @@ public class SignupActivity extends AppCompatActivity {
 
                     //update "User" with email address
                     //onCompleteListener to check for completion
-                    dbRef.child("Users").child(email).updateChildren(userDataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    dbRef.child("Users").child(username).updateChildren(userDataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
+                                Log.d("DEBUG",  "successfully storing user");
                                 Toast.makeText(SignupActivity.this, "Your account is ready!", Toast.LENGTH_SHORT).show();
                                 loading.dismiss();
 
@@ -113,6 +120,7 @@ public class SignupActivity extends AppCompatActivity {
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(SignupActivity.this, "Failed to create account... Network Error...", Toast.LENGTH_SHORT).show();
+                                loading.dismiss();
                             }
                         }
                     });
