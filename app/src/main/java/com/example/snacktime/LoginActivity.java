@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.snacktime.Users.Users;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -71,7 +72,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.child(dbParentCol).child(username).exists()) {
-
+                    Users newUser = dataSnapshot.child(dbParentCol).child(username).getValue(Users.class);
+                    System.out.println("haha");
                 } else {
                     Toast.makeText(LoginActivity.this, "Oops, this account " + username + " doesn't exist...", Toast.LENGTH_SHORT).show();
                     loading.dismiss();

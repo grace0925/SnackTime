@@ -3,6 +3,10 @@ package com.example.snacktime.Users;
 public class Users {
     private String username, firstname, lastname, email, password;
 
+    public Users() {
+
+    }
+
     public Users(String username, String firstname, String lastname, String email, String password) {
         this.username = username;
         this.firstname = firstname;
