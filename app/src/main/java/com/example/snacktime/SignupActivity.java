@@ -28,7 +28,7 @@ import java.util.HashMap;
 public class SignupActivity extends AppCompatActivity {
 
     //todo: email/phone verification
-    //todo:
+    //todo: confirm password
     private Button SignupButton;
     private EditText InputUsername, InputFirstname, InputLastname, Inputemail, Inputpw, InputConfirmPw;
     private ProgressDialog loading;
@@ -90,12 +90,10 @@ public class SignupActivity extends AppCompatActivity {
         final DatabaseReference dbRef;
         //get reference to the firebase db instance
         dbRef = FirebaseDatabase.getInstance().getReference();
-        Log.d("DEBUG","Entering validateEmail");
 
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.d("DEBUG",  "data change");
                 if(!(dataSnapshot.child("Users").child(username).exists())) {
                     //new HashMap to store user update
                     HashMap<String, Object> userDataMap = new HashMap<>();
@@ -111,7 +109,6 @@ public class SignupActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Log.d("DEBUG",  "successfully storing user");
                                 Toast.makeText(SignupActivity.this, "Your account is ready!", Toast.LENGTH_SHORT).show();
                                 loading.dismiss();
 

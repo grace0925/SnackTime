@@ -1,6 +1,7 @@
 package com.example.snacktime;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
@@ -73,7 +74,13 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.child(dbParentCol).child(username).exists()) {
                     Users newUser = dataSnapshot.child(dbParentCol).child(username).getValue(Users.class);
-                    System.out.println("haha");
+                    if(newUser.getUsername().equals(username) && newUser.getPassword().equals(password)) {
+                        Toast.makeText(LoginActivity.this, "Hooray! Logged in successfully!", Toast.LENGTH_SHORT).show();
+                        loading.dismiss();
+
+                        Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                        startActivity(intent);
+                    }
                 } else {
                     Toast.makeText(LoginActivity.this, "Oops, this account " + username + " doesn't exist...", Toast.LENGTH_SHORT).show();
                     loading.dismiss();

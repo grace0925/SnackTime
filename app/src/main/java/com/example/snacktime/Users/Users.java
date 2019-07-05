@@ -1,57 +1,57 @@
 package com.example.snacktime.Users;
 
 public class Users {
-    private String username, firstname, lastname, email, password;
+    private String Username, Firstname, Lastname, Email, Password;
 
     public Users() {
 
     }
 
     public Users(String username, String firstname, String lastname, String email, String password) {
-        this.username = username;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
+        this.Username = username;
+        this.Firstname = firstname;
+        this.Lastname = lastname;
+        this.Email = email;
+        this.Password = password;
     }
 
     public String getUsername() {
-        return username;
+        return Username;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        Username = username;
     }
 
     public String getFirstname() {
-        return firstname;
+        return Firstname;
     }
 
     public void setFirstname(String firstname) {
-        this.firstname = firstname;
+        Firstname = firstname;
     }
 
     public String getLastname() {
-        return lastname;
+        return Lastname;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        Lastname = lastname;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Email = email;
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        Password = password;
     }
 }
