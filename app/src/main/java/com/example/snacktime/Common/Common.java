@@ -5,6 +5,7 @@ import com.example.snacktime.Users.Users;
 //todo: adaptive app icon
 public class Common {
     public static final String USERS_COL = "Users";
+    public static final String ADMINS_COL = "Admins";
 
     private static Users curUser;
 
