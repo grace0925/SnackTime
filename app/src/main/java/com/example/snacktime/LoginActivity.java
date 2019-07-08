@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText inputUsername, inputPassword;
     private Button loginBtn;
     private ProgressDialog loading;
-    private String dbParentCol = "Users";
     private CheckBox rememberMe;
 
     @Override
@@ -86,8 +85,8 @@ public class LoginActivity extends AppCompatActivity {
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child(dbParentCol).child(username).exists()) {
-                    Users newUser = dataSnapshot.child(dbParentCol).child(username).getValue(Users.class);
+                if(dataSnapshot.child(Common.USERS_COL).child(username).exists()) {
+                    Users newUser = dataSnapshot.child(Common.USERS_COL).child(username).getValue(Users.class);
                     if(newUser.getUsername().equals(username) && newUser.getPassword().equals(password)) {
                         Toast.makeText(LoginActivity.this, "Hooray! Logged in successfully!", Toast.LENGTH_SHORT).show();
                         loading.dismiss();
