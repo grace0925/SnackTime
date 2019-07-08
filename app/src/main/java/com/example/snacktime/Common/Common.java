@@ -2,6 +2,7 @@ package com.example.snacktime.Common;
 
 import com.example.snacktime.Users.Users;
 //todo: implement all text in strings.xml
+//todo: adaptive app icon
 public class Common {
     public static final String USERS_COL = "Users";
 

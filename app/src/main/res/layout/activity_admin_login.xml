@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LoginActivity"
+    android:background="@color/colorPrimaryDark"
+    >
+
+    <ImageView android:id="@+id/app_logo_admin_login"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/snack_time"/>
+
+    <!--login input -->
+    <EditText android:id="@+id/admin_edit"
+        android:drawableLeft="@drawable/avatar_icon"
+        android:inputType="textEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="75dp"
+        android:layout_centerHorizontal="true"
+        android:ems="12"
+        android:textSize="25dp"
+        android:layout_below="@+id/app_logo_admin_login"
+        android:textColor="@color/colorPrimary"
+        android:hint="Admin ID"
+        android:textColorHint="@color/colorPrimary"
+        />
+
+    <!--password input -->
+    <EditText android:id="@+id/password__admin_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:inputType="textPassword"
+        android:layout_below="@+id/admin_edit"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:ems="12"
+        android:textSize="25dp"
+        android:height="50dp"
+        android:hint="Password"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:drawableLeft="@drawable/lock_icon"
+        />
+
+    <LinearLayout
+        android:id="@+id/login_admin"
+        android:layout_below="@+id/password__admin_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <Button android:id="@+id/adminLogin"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttons"
+            android:text="ADMIN LOGIN"
+            android:padding="15dp"
+            android:layout_marginLeft="80dp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/non_admin_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_admin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Login as user"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        />
+
+
+</RelativeLayout>

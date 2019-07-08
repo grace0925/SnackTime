@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
     private ProgressDialog loading;
     private CheckBox rememberMe;
+    private TextView adminLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +43,20 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = (Button) findViewById(R.id.login);
         loading = new ProgressDialog(this);
         rememberMe = (CheckBox) findViewById(R.id.remember_me_checkbox);
+        adminLink = (TextView) findViewById(R.id.admin_login);
 
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 login();
+            }
+        });
+        adminLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, AdminLoginActivity.class);
+                startActivity(intent);
             }
         });
     }
