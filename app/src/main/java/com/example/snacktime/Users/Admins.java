@@ -3,7 +3,7 @@ package com.example.snacktime.Users;
 public class Admins {
     private String AdminID, Password;
 
-    public void Admins() {
+    public Admins() {
 
     }
 

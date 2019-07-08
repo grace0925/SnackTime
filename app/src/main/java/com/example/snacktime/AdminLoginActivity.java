@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -62,34 +63,44 @@ public class AdminLoginActivity extends AppCompatActivity {
 
     private void adminLogin() {
         final String adminLogin = adminID.getText().toString();
-        final String adminPasswrod = password.getText().toString();
+        final String adminPassword = password.getText().toString();
 
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
-        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child(Common.ADMINS_COL).child(adminLogin).exists()) {
-                    Admins admin = dataSnapshot.child(Common.ADMINS_COL).child(adminLogin).getValue(Admins.class);
-                    if(admin.getAdminID().equals(adminLogin) && admin.getPassword().equals(adminPasswrod)) {
-                        loading.dismiss();
-                        Toast.makeText(AdminLoginActivity.this, "Logged in as admin", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(AdminLoginActivity.this, HomePageActivity.class);
-                        startActivity(intent);
+        if(TextUtils.isEmpty(adminLogin)) {
+            loading.dismiss();
+            Toast.makeText(AdminLoginActivity.this, "AdminID can't be empty...", Toast.LENGTH_SHORT).show();
+        } else if(TextUtils.isEmpty(adminPassword)) {
+            loading.dismiss();
+            Toast.makeText(AdminLoginActivity.this, "Password can't be empty...", Toast.LENGTH_SHORT).show();
+        } else {
+            DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+            dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.child(Common.ADMINS_COL).child(adminLogin).exists()) {
+                        Admins admin = dataSnapshot.child(Common.ADMINS_COL).child(adminLogin).getValue(Admins.class);
+                        System.out.println(admin.getAdminID());
+                        if(admin.getAdminID().equals(adminLogin) && admin.getPassword().equals(adminPassword)) {
+                            loading.dismiss();
+                            Toast.makeText(AdminLoginActivity.this, "Logged in as admin", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(AdminLoginActivity.this, HomePageActivity.class);
+                            startActivity(intent);
+                        } else {
+                            loading.dismiss();
+                            Toast.makeText(AdminLoginActivity.this, "Your password is incorrect...", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
                         loading.dismiss();
-                        Toast.makeText(AdminLoginActivity.this, "Your password is incorrect...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AdminLoginActivity.this, "AdminID does not exist...", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    loading.dismiss();
-                    Toast.makeText(AdminLoginActivity.this, "AdminID does not exist...", Toast.LENGTH_SHORT).show();
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        }
+
     }
 }
 
