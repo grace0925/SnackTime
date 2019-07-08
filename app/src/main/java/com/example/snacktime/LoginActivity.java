@@ -1,18 +1,22 @@
 package com.example.snacktime;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.snacktime.Common.Common;
 import com.example.snacktime.Users.Users;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
     private ProgressDialog loading;
     private String dbParentCol = "Users";
+    private CheckBox rememberMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = (EditText) findViewById(R.id.password_edit);
         loginBtn = (Button) findViewById(R.id.login);
         loading = new ProgressDialog(this);
+        rememberMe = (CheckBox) findViewById(R.id.remember_me_checkbox);
+
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         String username = inputUsername.getText().toString();
         String password = inputPassword.getText().toString();
 
+        //check empty fields
         if(TextUtils.isEmpty(username)){
             Toast.makeText(this, "Username can't be empty...", Toast.LENGTH_SHORT).show();
         } else if(TextUtils.isEmpty(password)){
@@ -60,6 +68,12 @@ public class LoginActivity extends AppCompatActivity {
             loading.show();
 
             validateAccount(username, password);
+            //check remember me checkbox
+            if(rememberMe.isChecked()) {
+                saveRememberMe(true);
+            } else {
+                saveRememberMe(false);
+            }
         }
 
     }
@@ -95,5 +109,14 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void saveRememberMe(Boolean rememberMe) {
+        System.out.println("-----Entering saveRememberme-----");
+        SharedPreferences sharedPref = getSharedPreferences(Common.REMEMBER_USER_SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(Common.REMEMBER_ME, rememberMe);
+        editor.commit();
+        //System.out.println("SHARED PREF REMEMEBR USER: " + sharedPref.getBoolean(Common.REMEMBER_ME, true));
     }
 }
