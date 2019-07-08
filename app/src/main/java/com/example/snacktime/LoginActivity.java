@@ -70,9 +70,9 @@ public class LoginActivity extends AppCompatActivity {
             validateAccount(username, password);
             //check remember me checkbox
             if(rememberMe.isChecked()) {
-                saveRememberMe(true);
+                saveRememberMe(true, username, password);
             } else {
-                saveRememberMe(false);
+                saveRememberMe(false, "", "");
             }
         }
 
@@ -111,11 +111,13 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void saveRememberMe(Boolean rememberMe) {
+    private void saveRememberMe(Boolean rememberMe, String username, String password) {
         System.out.println("-----Entering saveRememberme-----");
         SharedPreferences sharedPref = getSharedPreferences(Common.REMEMBER_USER_SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putBoolean(Common.REMEMBER_ME, rememberMe);
+        editor.putString(Common.REMEMBER_USERNAME, username);
+        editor.putString(Common.REMEMBER_PASSWORD, password);
         editor.commit();
         //System.out.println("SHARED PREF REMEMEBR USER: " + sharedPref.getBoolean(Common.REMEMBER_ME, true));
     }
