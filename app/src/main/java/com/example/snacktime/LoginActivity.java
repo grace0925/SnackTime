@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
     private ProgressDialog loading;
     private CheckBox rememberMe;
-    private TextView adminLink;
+    private TextView adminLink, signupLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        loginnnn
     }
 
     private void login() {
