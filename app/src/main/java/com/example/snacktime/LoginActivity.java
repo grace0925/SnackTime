@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         loading = new ProgressDialog(this);
         rememberMe = (CheckBox) findViewById(R.id.remember_me_checkbox);
         adminLink = (TextView) findViewById(R.id.admin_login);
+        signupLink = (TextView) findViewById(R.id.no_account);
 
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +60,14 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        loginnnn
+        signupLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void login() {
