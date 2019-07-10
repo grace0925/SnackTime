@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Users user = dataSnapshot.child(Common.USERS_COL).child(username).getValue(Users.class);
+                System.out.println("user: " + user.getUsername());
                 if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                     Toast.makeText(MainActivity.this, "Welcome back! You were already logged in!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
