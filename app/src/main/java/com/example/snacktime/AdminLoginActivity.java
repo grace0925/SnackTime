@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -79,6 +80,8 @@ public class AdminLoginActivity extends AppCompatActivity {
                         Admins admin = dataSnapshot.child(Common.ADMINS_COL).child(adminLogin).getValue(Admins.class);
                         if(admin.getAdminID().equals(adminLogin) && admin.getPassword().equals(adminPassword)) {
                             loading.dismiss();
+                            //clean up remember me shared preference when admin logs in
+                            cleanUpInfo();
                             Toast.makeText(AdminLoginActivity.this, "Welcome, administrator!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(AdminLoginActivity.this, AdminHomePageActivity.class);
                             startActivity(intent);
@@ -98,7 +101,15 @@ public class AdminLoginActivity extends AppCompatActivity {
                 }
             });
         }
+    }
 
+    private void cleanUpInfo() {
+        SharedPreferences sharedPref = getSharedPreferences(Common.REMEMBER_USER_SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(Common.REMEMBER_PASSWORD, "");
+        editor.putString(Common.REMEMBER_USERNAME, "");
+        editor.putBoolean(Common.REMEMBER_ME, false);
+        editor.commit();
     }
 }
 
