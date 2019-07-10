@@ -7,10 +7,10 @@
     tools:context=".AdminHomePageActivity"
     android:background="@android:color/white">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to admin page"
-        android:textColor="@color/darkGrey"/>
+    <include
+        android:id="@+id/action_bar_admin"
+        layout="@layout/action_bar_admin"
+        >
+    </include>
 
 </RelativeLayout>
