@@ -25,7 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    private static String savedUsername, savedPassword;
+    //GRACE DEBUG
+    //private static String savedUsername, savedPassword;
 
     private Button signUpBtn, loginBtn;
     private ProgressDialog loading;
