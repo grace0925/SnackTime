@@ -14,6 +14,6 @@ public class AdminHomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_home_page);
         Toolbar toolbar = findViewById(R.id.action_bar_admin);
         this.setSupportActionBar(toolbar);
-        toolbar.setTitle("THIS IS A TOOLBAR");
+
     }
 }

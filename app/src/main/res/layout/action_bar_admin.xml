@@ -2,15 +2,22 @@
 <androidx.appcompat.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="80dp"
     android:background="@color/lightOrange"
     >
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/admin_portal_title"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Admin Portal"
         android:textSize="25sp"
         android:textColor="@android:color/white"
         android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="140dp"
+        android:background="@drawable/circle"/>
 </androidx.appcompat.widget.Toolbar>

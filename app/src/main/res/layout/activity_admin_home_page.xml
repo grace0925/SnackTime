@@ -7,24 +7,215 @@
     tools:context=".AdminHomePageActivity"
     android:background="@android:color/white">
 
-    <include
-        android:id="@+id/action_bar_admin"
-        layout="@layout/action_bar_admin"
-        >
-    </include>
-
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
+        <include
+            android:id="@+id/action_bar_admin"
+            layout="@layout/action_bar_admin"
+            >
+        </include>
+        
+        <GridLayout
+            android:id="@+id/admin_dashboard"
+            android:rowCount="3"
+            android:columnCount="2"
+            android:alignmentMode="alignMargins"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/action_bar_admin"
+            android:columnOrderPreserved="false"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        </RelativeLayout>
-    </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/admin_all_stores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="40dp"
+                android:padding="12dp"
+                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="12dp"
+                app:cardBackgroundColor="@color/lightOrange">
 
-</>
+                <RelativeLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:elevation="12dp"
+                    android:padding="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/admin_view_all_stores_icon"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/admin_store"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View Stores"
+                        android:textColor="@color/darkGrey"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_below="@id/admin_view_all_stores_icon"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/admin_edit_promo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="40dp"
+                android:padding="12dp"
+                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="12dp"
+                app:cardBackgroundColor="@color/lightOrange">
+
+                <RelativeLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:elevation="12dp"
+                    android:padding="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/admin_edit_promo_icon"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/admin_promo"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edit Promos"
+                        android:textColor="@color/darkGrey"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_below="@id/admin_edit_promo_icon"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/admin_blacklist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="40dp"
+                android:padding="12dp"
+                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="12dp"
+                app:cardBackgroundColor="@color/lightOrange">
+
+                <RelativeLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:elevation="12dp"
+                    android:padding="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/admin_blacklist_icon"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/admin_blacklist"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Blacklist"
+                        android:textColor="@color/darkGrey"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_below="@id/admin_blacklist_icon"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="40dp"
+                android:padding="12dp"
+                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="12dp"
+                app:cardBackgroundColor="@color/lightOrange">
+
+                <RelativeLayout
+                    android:id="@+id/admin_transactions"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:elevation="12dp"
+                    android:padding="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/admin_transactions_icon"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/admin_transaction"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Transactions"
+                        android:textColor="@color/darkGrey"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_below="@id/admin_transactions_icon"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="40dp"
+                android:padding="12dp"
+                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="12dp"
+                app:cardBackgroundColor="@color/lightOrange">
+
+                <RelativeLayout
+                    android:id="@+id/admin_notifications"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:elevation="12dp"
+                    android:padding="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/admin_notifications_icon"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/admin_notification"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edit Promos"
+                        android:textColor="@color/darkGrey"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_below="@id/admin_notifications_icon"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+    </RelativeLayout>
+
+
+</ScrollView>
