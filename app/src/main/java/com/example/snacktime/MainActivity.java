@@ -25,8 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    //GRACE DEBUG
-    //private static String savedUsername, savedPassword;
+    private static String savedUsername, savedPassword;
 
     private Button signUpBtn, loginBtn;
     private ProgressDialog loading;
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         if (checkRememberMe()) {
             System.out.println("Check rememebr me is true");
             reLogin(savedUsername, savedPassword);
