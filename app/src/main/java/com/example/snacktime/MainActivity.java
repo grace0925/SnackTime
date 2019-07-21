@@ -25,9 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    private static String savedUsername, savedPassword;
-
-    private Button signUpBtn, loginBtn;
+    private Button userLogin, adminLogin, storeLogin;
     private ProgressDialog loading;
 
     @Override
@@ -35,81 +33,43 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        signUpBtn = (Button) findViewById(R.id.signup_btn);
-        loginBtn = (Button) findViewById(R.id.login_btn);
         loading = new ProgressDialog(this);
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        userLogin = (Button) findViewById(R.id.main_user_login);
+        adminLogin = (Button) findViewById(R.id.main_admin_login);
+        storeLogin = (Button) findViewById(R.id.main_store_login);
+
+        userLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            public void onClick(View view) {
+                loading.show();
+                Toast.makeText(MainActivity.this, "Please in as user :D", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, UserLoginActivity.class);
                 startActivity(intent);
+                loading.dismiss();
             }
         });
 
-        signUpBtn.setOnClickListener(new View.OnClickListener(){
+        adminLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SignupActivity.class);
+            public void onClick(View view) {
+                loading.show();
+                Toast.makeText(MainActivity.this, "Please log in as administrator :D", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, AdminLoginActivity.class);
                 startActivity(intent);
+                loading.dismiss();
             }
         });
-        if (checkRememberMe()) {
-            System.out.println("Check rememebr me is true");
-            reLogin(savedUsername, savedPassword);
-        }
-    }
 
-    private Boolean checkRememberMe() {
-        SharedPreferences sharedPref = getSharedPreferences(Common.REMEMBER_USER_SHARED_PREF, MODE_PRIVATE);
-        savedPassword = sharedPref.getString(Common.REMEMBER_PASSWORD, "");
-        savedUsername = sharedPref.getString(Common.REMEMBER_USERNAME, "");
-        return sharedPref.getBoolean(Common.REMEMBER_ME, true);
-    }
-
-    private void reLogin(final String username, final String password) {
-        final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
-        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        storeLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Users user = dataSnapshot.child(Common.USERS_COL).child(username).getValue(Users.class);
-                System.out.println("user: " + user.getUsername());
-                if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                    Toast.makeText(MainActivity.this, "Welcome back! You were already logged in!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
-                    startActivity(intent);
-                } else {
-                    cleanUpInfo();
-                    showAlert();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onClick(View view) {
+                loading.show();
+                Toast.makeText(MainActivity.this, "Please log in as administrator :D", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, RestaurantsLoginActivity.class);
+                startActivity(intent);
+                loading.dismiss();
             }
         });
-    }
-
-    private void showAlert() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("Error").setIcon(R.drawable.ic_launcher_foreground).setMessage("Your password is incorrect... Please re-login to continue!")
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                    }
-                });
-        builder.create().show();
-    }
-
-    private void cleanUpInfo() {
-        SharedPreferences sharedPref = getSharedPreferences(Common.REMEMBER_USER_SHARED_PREF, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(Common.REMEMBER_PASSWORD, "");
-        editor.putString(Common.REMEMBER_USERNAME, "");
-        editor.putBoolean(Common.REMEMBER_ME, false);
-        editor.commit();
     }
 }

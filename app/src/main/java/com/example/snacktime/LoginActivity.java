@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
     private ProgressDialog loading;
     private CheckBox rememberMe;
-    private TextView adminLink, signupLink;
+    private TextView adminLink, signupLink, storeLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         rememberMe = (CheckBox) findViewById(R.id.remember_me_checkbox);
         adminLink = (TextView) findViewById(R.id.admin_login);
         signupLink = (TextView) findViewById(R.id.no_account);
+        storeLink = (TextView) findViewById(R.id.store_login);
 
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +66,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(intent);
+            }
+        });
+        storeLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RestaurantsLoginActivity.class);
             }
         });
 

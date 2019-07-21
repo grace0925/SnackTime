@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RestaurantsLoginActivity"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+       android:id="@+id/rest_login_title"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:text="Sign in with your restaurant id"
+       android:textSize="22sp"
+       android:layout_marginLeft="30dp"
+       android:layout_marginTop="100dp"/>
+
+   <View android:id="@+id/rest_id_login_view"
+       android:layout_width="match_parent"
+       android:layout_height="70dp"
+       android:layout_below="@+id/rest_login_title"
+       android:background="@android:color/white"/>
+
+   <EditText android:id="@+id/rest_id_edit_view"
+       android:inputType="number"
+       android:layout_width="320dp"
+       android:layout_height="50dp"
+       android:layout_marginTop="20dp"
+       android:layout_centerHorizontal="true"
+       android:ems="12"
+       android:textSize="25dp"
+       android:layout_below="@+id/rest_login_title"
+       android:hint="Restaurant iD"
+       android:gravity="center_horizontal"
+       android:backgroundTint="@color/colorPrimaryDark"
+       android:textColor="@color/darkGrey"
+       android:textColorHint="@color/lightGrey"
+       />
+
+   <Button android:id="@+id/rest_id_continue"
+       android:layout_height="wrap_content"
+       android:layout_width="100dp"
+       android:background="@drawable/buttons"
+       android:layout_below="@+id/rest_id_login_view"
+       android:layout_marginTop="10dp"
+       android:layout_alignParentEnd="true"
+       android:layout_marginEnd="10dp"
+       android:text="Continue"
+       android:textColor="@color/colorAccent"
+       android:textStyle="bold"
+       >
+
+   </Button>
+
+    <RelativeLayout
+        android:id="@+id/rest_login_password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rest_id_login_view"
+        android:visibility="invisible">
+        <TextView
+            android:id="@+id/rest_login_password_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Enter your password"
+            android:textSize="22sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            />
+        <View android:id="@+id/rest_login_password_view"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@+id/rest_login_password_title"
+            android:background="@android:color/white"/>
+
+        <EditText android:id="@+id/rest_login_password_edit_view"
+            android:inputType="text"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:ems="12"
+            android:textSize="25dp"
+            android:layout_below="@+id/rest_login_password_title"
+            android:hint="Password"
+            android:gravity="center_horizontal"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textColor="@color/darkGrey"
+            android:textColorHint="@color/lightGrey"
+            />
+
+        <Button android:id="@+id/password_continue"
+            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:background="@drawable/buttons"
+            android:layout_below="@+id/rest_login_password_edit_view"
+            android:layout_marginTop="30dp"
+            android:text="LOGIN"
+            android:textColor="@color/colorAccent"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            >
+
+        </Button>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/rest_login_signup_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rest_id_login_view"
+        android:text="Want to join us?"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
+
+</RelativeLayout>
