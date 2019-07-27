@@ -39,7 +39,7 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_margin="12dp"
-                app:cardBackgroundColor="@color/lightOrange">
+                app:cardBackgroundColor="@android:color/white">
 
                 <RelativeLayout
                     android:orientation="vertical"
@@ -76,7 +76,7 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_margin="12dp"
-                app:cardBackgroundColor="@color/lightOrange">
+                app:cardBackgroundColor="@android:color/white">
 
                 <RelativeLayout
                     android:orientation="vertical"
@@ -113,7 +113,7 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_margin="12dp"
-                app:cardBackgroundColor="@color/lightOrange">
+                app:cardBackgroundColor="@android:color/white">
 
                 <RelativeLayout
                     android:orientation="vertical"
@@ -149,7 +149,7 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_margin="12dp"
-                app:cardBackgroundColor="@color/lightOrange">
+                app:cardBackgroundColor="@android:color/white">
 
                 <RelativeLayout
                     android:id="@+id/admin_transactions"
@@ -186,7 +186,7 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_margin="12dp"
-                app:cardBackgroundColor="@color/lightOrange">
+                app:cardBackgroundColor="@android:color/white">
 
                 <RelativeLayout
                     android:id="@+id/admin_notifications"
